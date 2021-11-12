@@ -1,0 +1,12 @@
+{
+	"autoload" : {
+		"psr-4" : {
+			"Home\\MAPS\\" : "src"
+		}
+	},
+	"name" : "Home/MAPS",
+	"require" : {
+		"php" : ">=7.4"
+	},
+	"minimum-stability" : "stable"
+}
