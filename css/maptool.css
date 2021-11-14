@@ -1,0 +1,21 @@
+:root {
+	--shadow-pulse: shadow-pulse 1s infinite;
+}
+
+@keyframes shadow-pulse {
+	0% { box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2); }
+	100% {box-shadow: 0 0 0 35px rgba(0, 0, 0, 00);}
+}
+
+.map-container {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+#geomap {
+	background: url(../images/us-map.svg) 0 0 no-repeat;
+	background-size: contain;
+	background-repeat: no-repeat;
+	transition: all 1s;
+}
