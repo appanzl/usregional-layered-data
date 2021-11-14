@@ -24,7 +24,7 @@ const my_root = [{
     label: ["Dept. of the Army"],
     children: [frame,
         {
-            label: ["CHRA"],
+            label: ["Washington, D.C."],
             backgroundColor: "rgba(127,127,127,0.3)",
             borderColor: "rgba(200,175,255,1)",
             data: [
@@ -36,7 +36,7 @@ const my_root = [{
             ],
             children: [frame,
                 {
-                    label: ["North Central"],
+                    label: ["Midwest HQ"],
                     backgroundColor: "rgba(127,127,127,0.3)",
                     borderColor: "rgba(200,175,255,1)",
                     data: [
@@ -48,7 +48,7 @@ const my_root = [{
                     ],
                     children: [frame,
                         {
-                            label: ["Rock Island Arsenal"],
+                            label: ["Davenport, IA"],
                             backgroundColor: "rgba(127,127,127,0.3)",
                             borderColor: "rgba(127,127,127,1)",
                             data: [
@@ -60,7 +60,7 @@ const my_root = [{
                             ]
                         },
                         {
-                            label: ["Fort McCoy"],
+                            label: ["Fort McCoy, WI"],
                             backgroundColor: "rgba(127,127,127,0.3)",
                             borderColor: "rgba(127,127,127,1)",
                             data: [
@@ -86,7 +86,7 @@ const my_root = [{
                     ]
                 },
                 {
-                    label: ["North East"],
+                    label: ["North East HQ"],
                     backgroundColor: "rgba(127,127,127,0.3)",
                     borderColor: "rgba(127,127,127,1)",
                     data: [
@@ -98,7 +98,7 @@ const my_root = [{
                     ]
                 },
                 {
-                    label: ["South Central"],
+                    label: ["South Central HQ"],
                     backgroundColor: "rgba(127,127,127,0.3)",
                     borderColor: "rgba(127,127,127,1)",
                     data: [
@@ -110,7 +110,7 @@ const my_root = [{
                     ]
                 },
                 {
-                    label: ["South West"],
+                    label: ["South West HQ"],
                     backgroundColor: "rgba(127,127,127,0.3)",
                     borderColor: "rgba(127,127,127,1)",
                     data: [
@@ -122,7 +122,7 @@ const my_root = [{
                     ]
                 },
                 {
-                    label: ["West"],
+                    label: ["West HQ"],
                     backgroundColor: "rgba(127,127,127,0.3)",
                     borderColor: "rgba(127,127,127,1)",
                     data: [
@@ -174,7 +174,7 @@ const my_root = [{
             ]
         },
         {
-            label: ["FORSCOM"],
+            label: ["North Carolina"],
             backgroundColor: "rgba(127,127,127,0.3)",
             borderColor: "rgba(127,127,127,1)",
             data: [
@@ -186,7 +186,7 @@ const my_root = [{
             ]
         },
         {
-            label: ["TRADOC"],
+            label: ["Virginia"],
             backgroundColor: "rgba(127,127,127,0.3)",
             borderColor: "rgba(127,127,127,1)",
             data: [
@@ -198,7 +198,7 @@ const my_root = [{
             ]
         },
         {
-            label: ["AMC"],
+            label: ["Huntsville, AL"],
             backgroundColor: "rgba(127,127,127,0.3)",
             borderColor: "rgba(127,127,127,1)",
             data: [
@@ -210,7 +210,7 @@ const my_root = [{
             ]
         },
         {
-            label: ["AFC"],
+            label: ["Austin, TX"],
             backgroundColor: "rgba(125,125,125,0.3)",
             borderColor: "rgba(255,255,0,1)",
             data: [
@@ -234,7 +234,7 @@ const my_root = [{
                     ]
                 },
                 {
-                    label: ["Capitol"],
+                    label: ["Washington, D.C."],
                     backgroundColor: "rgba(127,127,127,0.3)",
                     borderColor: "rgba(127,255,127,1)",
                     data: [
