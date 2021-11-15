@@ -2,10 +2,48 @@
 
 var r = 10;
 /** TODO: Global Expansion
-  * var north_america_src = "../images/";
-  * var europe_src = "../images/";
-  * var far_east_src = "../images/";
+ * swap image from North America to different country for increased analytics
+ * var north_america_src = "../images/";
+ * var europe_src = "../images/";
+ * var far_east_src = "../images/";
 */
+
+
+{/**
+//C# (server side) Transformation of Latitude & Longitude into normalized x,y values for the North America SVG image
+private float[] Coord2Norm(float lon, float lat, int rId)
+{
+    //if other regions have outlier subregions similar to Alaska&Hawaii of the U.S. rId should be an int[2] { rId, sub_rId } where parent is the region and child is the subset identifier. need to avoid double instance checks
+    float x, y;
+    if (rId == Array.IndexOf(regs, "United States"))
+    {
+        if (51.82 <= lat && lat <= 71.66            // Alaska
+        && -167.7 <= lon && lon <= -130.18)
+        {
+            x = (float)(0.003726 * lon + 0.625098);
+            y = (float)(2.286680945 * Math.Pow(10, -4) * Math.Pow(lat, 2) - 1.211667371 * Math.Pow(10, -2) * lat + 1.390370858 * Math.Pow(10, -2));
+            return new float[] { x, y };
+        }
+        else
+        if (19.04 <= lat && lat <= 22.35            // Hawaii
+        && -160.25 <= lon && lon <= -154.8)
+        {
+            x = (float)(0.014833 * lon + 2.556042);
+            y = (float)(-6.061806072 * Math.Pow(10, -4) * Math.Pow(lat, 2) + 5.672617062 * Math.Pow(10, -2) * lat - 8.303008482 * Math.Pow(10, -1));
+            return new float[] { x, y };
+
+        }
+        else
+        {
+            x = (float)(0.014775 * lon + 1.886276);
+            y = (float)(2.831746047 * Math.Pow(10, -4) * Math.Pow(lat, 2) + 1.610193452 * Math.Pow(10, -2) * lat - 5.464432461 * Math.Pow(10, -1));
+            return new float[] { x, y };
+        }
+    }
+    else
+        return new float[] { 0.95f, 0.5f };
+}
+*/}
 
 const frame = {
 	//Scaffold the image, necessary for holding a 0:1 normalized window
@@ -21,28 +59,28 @@ const frame = {
 };
 
 const my_root = [{
-    label: ["Dept. of the Army"],
+    label: ["U.S. Regional Analytics"],
     children: [frame,
         {
-            label: ["Washington, D.C."],
+            label: ["Capitol"],
             backgroundColor: "rgba(127,127,127,0.3)",
             borderColor: "rgba(200,175,255,1)",
             data: [
                 {//Washington, D.C.
-                    x: 0.7617,
-                    y: 0.5233,
+                    x: 0.7460,
+                    y: 0.5186,
                     r: function (context) { return r; }
                 }
             ],
             children: [frame,
                 {
-                    label: ["Midwest HQ"],
+                    label: ["Midwest"],
                     backgroundColor: "rgba(127,127,127,0.3)",
                     borderColor: "rgba(200,175,255,1)",
                     data: [
                         {//Rock Island, IL
                             x: 0.5511,
-                            y: 0.646,
+                            y: 0.6200,
                             r: r
                         }
                     ],
@@ -53,32 +91,32 @@ const my_root = [{
                             borderColor: "rgba(127,127,127,1)",
                             data: [
                                 {//Rock Island, IL
-                                    x: 0.5511,//0.4276,//
-                                    y: 0.646,//0.4113,//
+                                    x: 0.5511,
+                            		y: 0.6200,
                                     r: r
                                 }
                             ]
                         },
                         {
-                            label: ["Fort McCoy, WI"],
+                            label: ["Milwaukee, WI"],
                             backgroundColor: "rgba(127,127,127,0.3)",
                             borderColor: "rgba(127,127,127,1)",
                             data: [
-                                {//Fort McCoy, WI
-                                    x: 0.5501,//0.4076,//
-                                    y: 0.7506,//0.6420,//
+                                {//Milwaukee, WI
+                                    x: 0.5855,
+                                    y: 0.7005,
                                     r: r
                                 }
                             ]
                         },
                         {
-                            label: ["Warren, MI"],
+                            label: ["Detroit, MI"],
                             backgroundColor: "rgba(127,127,127,0.3)",
                             borderColor: "rgba(127,127,127,1)",
                             data: [
-                                {//Warren, MI
-                                    x: 0.6660,//0.6500,//
-                                    y: 0.7285,//0.5786,//
+                                {//Detroit, MI
+                                    x: 0.6540,
+                                    y: 0.6428,
                                     r: r
                                 }
                             ]
@@ -86,7 +124,7 @@ const my_root = [{
                     ]
                 },
                 {
-                    label: ["North East HQ"],
+                    label: ["North East"],
                     backgroundColor: "rgba(127,127,127,0.3)",
                     borderColor: "rgba(127,127,127,1)",
                     data: [
@@ -98,7 +136,7 @@ const my_root = [{
                     ]
                 },
                 {
-                    label: ["South Central HQ"],
+                    label: ["South"],
                     backgroundColor: "rgba(127,127,127,0.3)",
                     borderColor: "rgba(127,127,127,1)",
                     data: [
@@ -110,25 +148,13 @@ const my_root = [{
                     ]
                 },
                 {
-                    label: ["South West HQ"],
-                    backgroundColor: "rgba(127,127,127,0.3)",
-                    borderColor: "rgba(127,127,127,1)",
-                    data: [
-                        {//Fort Riley, KS
-                            x: 0.465,
-                            y: 0.48,
-                            r: r
-                        }
-                    ]
-                },
-                {
-                    label: ["West HQ"],
+                    label: ["West"],
                     backgroundColor: "rgba(127,127,127,0.3)",
                     borderColor: "rgba(127,127,127,1)",
                     data: [
                         {//Tucson, AZ
-                            x: 0.2095,
-                            y: 0.2478,
+                            x: 0.2395,
+                            y: 0.2768,
                             r: r
                         }
                     ]
@@ -155,20 +181,6 @@ const my_root = [{
                             y: 0.68,
                             r: r
                         }
-                    ],
-                    children: [frame,
-                        {
-                            label: ["this is 'merica"],
-                            backgroundColor: 'rgba(125,125,125,0.3)',
-                            borderColor: 'rgba(125,125,125,0.3)',
-                            data: [
-                                {
-                                    x: 0.5,
-                                    y: 0.5,
-                                    r: r
-                                }
-                            ]
-                        }
                     ]
                 }*/
             ]
@@ -181,18 +193,6 @@ const my_root = [{
                 {//Fayetville, NC
                     x: 0.7187,
                     y: 0.3885,
-                    r: r
-                }
-            ]
-        },
-        {
-            label: ["Virginia"],
-            backgroundColor: "rgba(127,127,127,0.3)",
-            borderColor: "rgba(127,127,127,1)",
-            data: [
-                {//Newport News, VA
-                    x: 0.7465,
-                    y: 0.5189,
                     r: r
                 }
             ]
@@ -222,7 +222,7 @@ const my_root = [{
             ],
             children: [frame,
                 {
-                    label: ["HQ"],
+                    label: ["Austin, TX"],
                     backgroundColor: "rgba(127,127,127,0.3)",
                     borderColor: "rgba(127,127,127,1)",
                     data: [
@@ -246,7 +246,7 @@ const my_root = [{
                     ],
                     children: [frame,
                         {
-                            label: ["Medical Research"],
+                            label: ["Judicial"],
                             backgroundColor: "rgba(127,127,127,0.3)",
                             borderColor: "rgba(127,127,127,1)",
                             data: [
@@ -258,13 +258,25 @@ const my_root = [{
                             ]
                         },
                         {
-                            label: ["Network"],
+                            label: ["Legeslative"],
                             backgroundColor: "rgba(127,127,127,0.3)",
                             borderColor: "rgba(127,127,127,1)",
                             data: [
                                 {//Washington, DC
                                     x: 0.7617,
                                     y: 0.5233,
+                                    r: r
+                                }
+                            ]
+                        },
+                        {
+                            label: ["Executive"],
+                            backgroundColor: "rgba(127,127,127,0.3)",
+                            borderColor: "rgba(127,127,127,1)",
+                            data: [
+                                {//Washington, DC
+                                    x: 0.7620,
+                                    y: 0.5222,
                                     r: r
                                 }
                             ]
@@ -293,8 +305,8 @@ window.onload = function () {
 	//Map Display
 	GeoSelector(my_root);
 	
-	//if not seeing this, error on in GeoSelector
-	$('#notes').html("No Errors");
+	//User Notes
+	$('#notes').html("Click a Circle,\n Double Click a Colored One");
 }
 
 /**
@@ -489,7 +501,8 @@ function GeoSelector(root) {
     }
     function UpdateFigures(chartInstance) {
 
-        $('#geoheader').html(curr.label);
+        $('#geoheader').html(prev.label);
+		$('#notes').html(curr.label);
         chartInstance.data.datasets = prev.children;
         // - update ext graphs to curr data
         chartInstance.update();
