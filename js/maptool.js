@@ -62,7 +62,7 @@ const my_root = [{
     label: ["U.S. Regional Analytics"],
     children: [frame,
         {
-            label: ["Capitol"],
+            label: ["Capital"],
             backgroundColor: "rgba(127,127,127,0.3)",
             borderColor: "rgba(200,175,255,1)",
             data: [
