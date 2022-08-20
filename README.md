@@ -1,7 +1,7 @@
 # usregional-layered-data
 
 ### Intentions:
-The goal is to show analysis of data grouped by region or geospatial location within the United States. Regardless of what is actually being considered, the aim is to platform a methodology for data structured by location and allow for further breakdown of these data sets for individual analysis.
+The goal is to show an analysis of tiered data grouped by region or geospatial location within the United States.
 
 ### Dependencies:
 JS
